@@ -16,19 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-ar-vVT" customClass="FLXPaddleView">
-                                <rect key="frame" x="112" y="451" width="89" height="14"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Brick" translatesAutoresizingMaskIntoConstraints="NO" id="Ivd-g1-8up" customClass="FLXBrickView">
+                                <rect key="frame" x="0.0" y="209" width="56" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DonBora" translatesAutoresizingMaskIntoConstraints="NO" id="JTB-sr-Ljd" customClass="FLXBallImageView">
                                 <rect key="frame" x="72" y="126" width="66" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Brandon" translatesAutoresizingMaskIntoConstraints="NO" id="7qz-VJ-HmO" customClass="FLXBallImageView">
-                                <rect key="frame" x="182" y="146" width="66" height="67"/>
+                                <rect key="frame" x="139" y="426" width="66" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-ar-vVT" customClass="FLXPaddleView">
+                                <rect key="frame" x="162" y="277" width="43" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -39,6 +43,7 @@
                     <connections>
                         <outlet property="ballImageView1" destination="JTB-sr-Ljd" id="Myc-j0-HCL"/>
                         <outlet property="ballImageView2" destination="7qz-VJ-HmO" id="1Pt-KX-WDa"/>
+                        <outlet property="brickView" destination="Ivd-g1-8up" id="Suz-Xx-UYA"/>
                         <outlet property="paddleView" destination="2dH-ar-vVT" id="t7V-f9-mV8"/>
                     </connections>
                 </viewController>
@@ -53,6 +58,7 @@
     </scenes>
     <resources>
         <image name="Brandon" width="207" height="213"/>
+        <image name="Brick" width="766" height="254"/>
         <image name="DonBora" width="222" height="220"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

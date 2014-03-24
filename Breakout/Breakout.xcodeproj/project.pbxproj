@@ -24,6 +24,7 @@
 		C3928CCC18DF67E0007693BF /* FLXPaddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3928CC618DF67E0007693BF /* FLXPaddleView.m */; };
 		C3928CCD18DF67E0007693BF /* FLXBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3928CC818DF67E0007693BF /* FLXBallView.m */; };
 		C3928D0218DF694C007693BF /* FLXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3928D0018DF694C007693BF /* FLXViewController.m */; };
+		C3928D0518E05EB4007693BF /* FLXBrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3928D0418E05EB4007693BF /* FLXBrickView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		C3928CC818DF67E0007693BF /* FLXBallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXBallView.m; sourceTree = "<group>"; };
 		C3928D0018DF694C007693BF /* FLXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXViewController.m; sourceTree = "<group>"; };
 		C3928D0118DF694C007693BF /* FLXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXViewController.h; sourceTree = "<group>"; };
+		C3928D0318E05EB4007693BF /* FLXBrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXBrickView.h; sourceTree = "<group>"; };
+		C3928D0418E05EB4007693BF /* FLXBrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXBrickView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				C3928CC418DF67E0007693BF /* FLXBallImageView.m */,
 				C3928CC518DF67E0007693BF /* FLXPaddleView.h */,
 				C3928CC618DF67E0007693BF /* FLXPaddleView.m */,
+				C3928D0318E05EB4007693BF /* FLXBrickView.h */,
+				C3928D0418E05EB4007693BF /* FLXBrickView.m */,
 				C3928D0018DF694C007693BF /* FLXViewController.m */,
 				C3928D0118DF694C007693BF /* FLXViewController.h */,
 				C3928CC718DF67E0007693BF /* FLXBallView.h */,
@@ -269,6 +274,7 @@
 				C3928D0218DF694C007693BF /* FLXViewController.m in Sources */,
 				C3928C9C18DC795A007693BF /* FLXAppDelegate.m in Sources */,
 				C3928CCD18DF67E0007693BF /* FLXBallView.m in Sources */,
+				C3928D0518E05EB4007693BF /* FLXBrickView.m in Sources */,
 				C3928CCC18DF67E0007693BF /* FLXPaddleView.m in Sources */,
 				C3928CCB18DF67E0007693BF /* FLXBallImageView.m in Sources */,
 			);

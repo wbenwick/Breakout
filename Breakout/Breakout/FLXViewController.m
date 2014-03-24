@@ -10,12 +10,14 @@
 #import "FLXBallView.h"
 #import "FLXBallImageView.h"
 #import "FLXPaddleView.h"
+#import "FLXBrickView.h"
 
 @interface FLXViewController () <UICollisionBehaviorDelegate>
 {
     __weak IBOutlet FLXPaddleView *paddleView;
     __weak IBOutlet FLXBallImageView *ballImageView1;
     __weak IBOutlet FLXBallImageView *ballImageView2;
+    __weak IBOutlet FLXBrickView *brickView;
     
     UIDynamicAnimator       *dynamicAnimator;
     UIPushBehavior          *pushBehavior;
@@ -24,6 +26,7 @@
     UIDynamicItemBehavior   *ballDynamicBehavior1;
     UIDynamicItemBehavior   *ballDynamicBehavior2;
     UIDynamicItemBehavior   *paddleDynamicBehavior;
+    UIDynamicItemBehavior   *brickDynamicBehavior;
     NSString                *ballImageString1;
     NSString                *ballImageString2;
     
@@ -39,10 +42,11 @@
     
     dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     pushBehavior  = [[UIPushBehavior alloc] initWithItems:@[ballImageView1, ballImageView2] mode: UIPushBehaviorModeInstantaneous];
-    collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[ballImageView1, ballImageView2, paddleView]];
+    collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[ballImageView1, ballImageView2, paddleView,brickView]];
     ballDynamicBehavior1 = [[UIDynamicItemBehavior alloc] initWithItems:@[ballImageView1, ballImageView2]];
     //    ballDynamicBehavior2 = [[UIDynamicItemBehavior alloc] initWithItems:@[ballImageView2]];
     paddleDynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[paddleView]];
+    brickDynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[brickView]];
     
     ballImageString1 = [NSString stringWithFormat:@"DonBora"];
     ballImageString2 = [NSString stringWithFormat:@"Brandon"];
@@ -77,6 +81,13 @@
     paddleDynamicBehavior.friction = 0;
     paddleDynamicBehavior.resistance = 0;
     [dynamicAnimator addBehavior:paddleDynamicBehavior];
+    
+    brickDynamicBehavior.allowsRotation = NO;
+    brickDynamicBehavior.density = 10000.0f;
+    brickDynamicBehavior.elasticity = 1.0f;
+    brickDynamicBehavior.friction = 0;
+    brickDynamicBehavior.resistance = 0;
+    [dynamicAnimator addBehavior:brickDynamicBehavior];
     
     collisionBehavior.collisionMode = UICollisionBehaviorModeEverything;
     collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
@@ -136,7 +147,9 @@
             if ([ballImageString1 isEqualToString:@"Max"]) {
                 ballImageView1.image = [UIImage imageNamed:@"DonBora"];
                 ballImageString1 = @"DonBora";
-            }
+                pushBehavior.magnitude=2.0;
+                [dynamicAnimator addBehavior:pushBehavior];
+           }
             else {
                 ballImageView1.image = [UIImage imageNamed:@"Max"];
                 ballImageString1 = @"Max";
@@ -160,6 +173,25 @@
         
         
     }
+    
+    if ([item1 isEqual:brickView] || [item2 isEqual:brickView])  {
+
+            [UIView animateWithDuration:0.5 animations:^{
+                brickView.transform = CGAffineTransformMakeScale(0.1,0.1);
+                brickView.center = CGPointMake(100, 100);
+                brickView.alpha = 0.0;
+                
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:1.0 animations:^{
+                }];
+                 
+                NSLog(@"brick animation complete");
+            }];
+            NSLog(@"brick removed");
+
+//        [brickView removeFromSuperview];
+    }
+    
 }
 
 -(IBAction)dragPaddle:(UIPanGestureRecognizer *)panGestureRecognizer
