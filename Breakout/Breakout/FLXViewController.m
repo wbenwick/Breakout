@@ -98,6 +98,19 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated  {
+    
+    FLXBrickView *newBrick = [[FLXBrickView alloc] init];
+    
+    newBrick.frame = CGRectMake(100,100,25,50);
+    newBrick.image = [UIImage imageNamed:@"Brick"];
+    [self.view addSubview:newBrick];
+
+    [brickDynamicBehavior addItem:newBrick];
+    
+    [collisionBehavior addItem:newBrick];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -148,6 +161,7 @@
                 ballImageView1.image = [UIImage imageNamed:@"DonBora"];
                 ballImageString1 = @"DonBora";
                 pushBehavior.magnitude=2.0;
+                pushBehavior.pushDirection = CGVectorMake(0.5, 0.5);
                 [dynamicAnimator addBehavior:pushBehavior];
            }
             else {
@@ -177,9 +191,9 @@
     if ([item1 isEqual:brickView] || [item2 isEqual:brickView])  {
 
             [UIView animateWithDuration:0.5 animations:^{
-                brickView.transform = CGAffineTransformMakeScale(0.1,0.1);
-                brickView.center = CGPointMake(100, 100);
-                brickView.alpha = 0.0;
+//                brickView.transform = CGAffineTransformMakeScale(0.1,0.1);
+//                brickView.center = CGPointMake(100, 100);
+                brickView.alpha = 0.5;
                 
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:1.0 animations:^{
@@ -189,7 +203,8 @@
             }];
             NSLog(@"brick removed");
 
-//        [brickView removeFromSuperview];
+//       [brickView removeFromSuperview];
+        [collisionBehavior removeItem:brickView];
     }
     
 }
